@@ -56,8 +56,49 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
 
         public void HeapSort(int[] arr)
         {
-            //Replace the following code snippet with your implementation
-            throw new NotImplementedException();
+            arr = MakeHeap(arr);
+            foreach (int i in arr)
+            {
+                Console.Write(i + ",");
+            }
+            Console.WriteLine();
+            for (int i = arr.Length - 1; i >= 0; i--)
+            {
+                Console.WriteLine(arr[0] + "," + arr[i]);
+                int temp = arr[0];
+                arr[0] = arr[i];
+                arr[i] = temp;
+                MakeHeap(arr);
+                Console.WriteLine(arr[0]+","+arr[i]);
+                Console.WriteLine();
+            }
+            foreach (int i in arr)
+            {
+                Console.Write(i + ",");
+            }
+        }
+        private int[] MakeHeap(int[] arr)
+        {
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                int index = i;
+
+                while (index != 0)
+                {
+                    int parent = (index - 1) / 2;
+                    if (arr[index] <= arr[parent])
+                    {
+                        break;
+                    }
+
+                    int temp = arr[index];
+                    arr[index] = arr[parent];
+                    arr[parent] = temp;
+
+                    index = parent;
+                }
+            }
+            return arr;
         }
 
         public void InsertionSort(int[] arr)

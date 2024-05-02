@@ -38,8 +38,10 @@ internal class Program
         // the method call below is just for reference on how you
         //can call the method and pass the sample data provided in the MyData class.
         int[] myArray = data.RandomNumSmallSmallRange; //initializing array that we want to sort. Note that we create and assign this prior to the method call, and there is a reason for this. Do you know why? :)
-        sorter.BubbleSort(myArray); // <-- implement the methods from ISorter in the Sorter class in order to use them and passing the previously initialized array as an argument to the sorting method we want to test...
+        int[] testArray = { 12, 22, 7, 3, 19, 77 };
+        //sorter.BubbleSort(myArray); // <-- implement the methods from ISorter in the Sorter class in order to use them and passing the previously initialized array as an argument to the sorting method we want to test...
 
+        sorter.HeapSort(testArray);
         //To be able to measure how long it takes to run an algorithm, you can use
         //The Stopwatch and the TimeSpan classes.
 
