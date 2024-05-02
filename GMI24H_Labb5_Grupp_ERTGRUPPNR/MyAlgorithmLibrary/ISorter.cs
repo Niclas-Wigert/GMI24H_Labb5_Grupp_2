@@ -2,7 +2,7 @@
 {/// <summary>
 /// This interface is used to define which algorithms that can be implemented in the Sorter class
 /// </summary>
-    internal interface ISorter
+    public interface ISorter
     {
 
         void BubbleSort(int[] arr);
