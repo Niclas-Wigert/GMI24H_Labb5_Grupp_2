@@ -16,6 +16,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
     /// </summary>
     public class Sorter : ISorter
     {
+        // BubbleSort, Reference: Essential Algorithms
         public void BubbleSort(int[] arr)
         {
             bool not_sorted = true;
@@ -26,21 +27,19 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
                 {
                     if (arr[i] > arr[i + 1])
                     {
-                        int temp = arr[i];
-                        arr[i] = arr[i + 1];
-                        arr[i + 1] = temp;
+                        Swap(arr, i, i + 1);
                         not_sorted = true;
                     }
                 }
             }
+            
         }
 
-
-        // Reference for HeapSort https://www.geeksforgeeks.org/heap-sort/
+        // HeapSort, Reference: https://www.geeksforgeeks.org/heap-sort/
         public void HeapSort(int[] arr)
         {
             int heapSize = arr.Length;
-            PrintSumShit(arr);
+            
             for (int i = heapSize / 2 - 1; i >= 0; i--)
             {
                 MakeHeap(arr, heapSize, i);
@@ -48,11 +47,8 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
 
             for (int i = heapSize - 1; i > 0; i--)
             {
-                int temp = arr[0];
-                arr[0] = arr[i];
-                arr[i] = temp;
-                MakeHeap(arr, i, 0);
-                PrintSumShit(arr);
+                Swap(arr, 0, i);
+                MakeHeap(arr, i, 0);                
             }
         }
         private void MakeHeap(int[] arr, int heapSize, int i)
@@ -74,21 +70,19 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
 
             if (largestIndex != i)
             {
-                int temp = arr[i];
-                arr[i] = arr[largestIndex];
-                arr[largestIndex] = temp;
-
+                Swap(arr, i, largestIndex);
                 MakeHeap(arr, heapSize, largestIndex);
             }
         }
 
+        // InsertionSort, Reference: https://www.geeksforgeeks.org/insertion-sort/
         public void InsertionSort(int[] arr)
-        {       
+        {
             for (int i = 1; i < arr.Length; i++)
             {
                 int peek = arr[i];
                 int j = i - 1;
-                while(j >= 0 && arr[j] > peek)
+                while (j >= 0 && arr[j] > peek)
                 {
                     arr[j + 1] = arr[j];
                     j = j - 1;
@@ -97,12 +91,24 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
             }
         }
 
+        // QuickSort, Reference: https://www.geeksforgeeks.org/quick-sort/
+        public void QuickSort(int[] arr, int low, int high)
+        {
+            
+            if (low < high)
+            {
+                int pi = Partition(arr, low, high);
+
+                QuickSort(arr, low, pi - 1);
+                QuickSort(arr, pi + 1, high);
+            }
+        }
+
         public int Partition(int[] arr, int low, int high)
         {
-            int pivot = high;
+            int pivot = arr[high];
             int i = low - 1;
 
-            PrintSumShit(arr);
             for (int j = low; j <= high - 1; j++)
             {
                 if (arr[j] < pivot)
@@ -111,15 +117,26 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
                     Swap(arr, i, j);
                 }
             }
-            Swap(arr, i+1, high);
-            return (i+1);
+            Swap(arr, i + 1, high);
+            return (i + 1);
         }
 
+        // SelectionSort, Reference: Essential Algorithms
         public void SelectionSort(int[] arr)
         {
-            //Replace the following code snippet with your implementation
-            throw new NotImplementedException();
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                for (int j = i + 1; j < arr.Length; j++)
+                {
+                    if (arr[i] > arr[j])
+                    {
+                        Swap(arr, i, j);
+                    }
+                }
+            }
         }
+
+        // Method for when we tried them
         private void PrintSumShit(int[] arr)
         {
             foreach (int i in arr)
@@ -128,6 +145,8 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
             }
             Console.WriteLine();
         }
+
+        // Method for Swap
         private void Swap(int[] arr, int i, int j)
         {
             int temp = arr[i];

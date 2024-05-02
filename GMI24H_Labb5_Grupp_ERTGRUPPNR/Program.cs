@@ -37,25 +37,41 @@ internal class Program
         // The BubbleSort method of the Sorter class is not yet implemented,
         // the method call below is just for reference on how you
         //can call the method and pass the sample data provided in the MyData class.
-        int[] myArray = data.RandomNumSmallSmallRange; //initializing array that we want to sort. Note that we create and assign this prior to the method call, and there is a reason for this. Do you know why? :)
-        int[] testArray = { 12, 22, 33, 3, 19, 77, 1 };
+        //int[] myArray = data.RandomNumSmallSmallRange; //initializing array that we want to sort. Note that we create and assign this prior to the method call, and there is a reason for this. Do you know why? :)
+        //int[] testArray = { 12, 22, 33, 3, 19, 77, 1 };
 
         //sorter.BubbleSort(myArray); // <-- implement the methods from ISorter in the Sorter class in order to use them and passing the previously initialized array as an argument to the sorting method we want to test...
+
+        //sorter.BubbleSort(testArray);
         //sorter.HeapSort(testArray);
         //sorter.InsertionSort(testArray);
+        //sorter.QuickSort(testArray, 0, testArray.Length-1);
+        //sorter.SelectionSort(testArray);
 
         //To be able to measure how long it takes to run an algorithm, you can use
         //The Stopwatch and the TimeSpan classes.
 
-        for(int i = 0; i < 10; i++)
+
+        TimeSpan totalRunTime = new TimeSpan();
+        for (int i = 0; i < 10; i++)
         {
+            int[] myArray = data.RandomNumSmallLargeRange; //initializing array that we want to sort. Note that we create and assign this prior to the method call, and there is a reason for this. Do you know why? :)
+
+
             Stopwatch sw = Stopwatch.StartNew();
             //HINT: this is an appropriate place to run your algorithm.
+            sorter.BubbleSort(myArray);
+
           
             sw.Stop();
             TimeSpan elapsedTime = sw.Elapsed; //HINT: perhaps might be a good idea to do something with this...
-            
+            Console.WriteLine(elapsedTime.ToString());
+
+            totalRunTime += elapsedTime;
         }
+        Console.WriteLine("Total körtid för alla tio: " + totalRunTime.Ticks);
+
+        Console.WriteLine("Medel körtid: "+totalRunTime.Ticks / 10);
         
     }
 }
