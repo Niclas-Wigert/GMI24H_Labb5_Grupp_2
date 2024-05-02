@@ -86,8 +86,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
         }
 
         public void InsertionSort(int[] arr)
-        {
-            PrintSumShit(arr);        
+        {       
             for (int i = 1; i < arr.Length; i++)
             {
                 int peek = arr[i];
@@ -99,21 +98,6 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
                 }
                 arr[j + 1] = peek;
             }
-
-
-            //for (int j = 0; j < arr.Length - 1; j++)
-            //{
-            //    if (arr[j] < arr[i] && j < i)
-            //    {
-            //        int temp = arr[i];
-            //        arr[i] = arr[j];
-            //        arr[j] = temp;
-            //        //if (j < i && arr[j] > arr[i])
-            //        //{
-            //        //}
-            //    }
-            //}
-            PrintSumShit(arr);
         }
 
         public void QuickSort(int[] arr, int low, int high)
