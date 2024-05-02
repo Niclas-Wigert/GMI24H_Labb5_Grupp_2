@@ -40,7 +40,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
         public void HeapSort(int[] arr)
         {
             int heapSize = arr.Length;
-
+            PrintSumShit(arr);
             for (int i = heapSize / 2 - 1; i >= 0; i--)
             {
                 MakeHeap(arr, heapSize, i);
@@ -52,10 +52,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
                 arr[0] = arr[i];
                 arr[i] = temp;
                 MakeHeap(arr, i, 0);
-            }
-            foreach (int i in arr)
-            {
-                Console.Write(i + " ");
+                PrintSumShit(arr);
             }
         }
         private void MakeHeap(int[] arr, int heapSize, int i)
@@ -100,10 +97,22 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
             }
         }
 
-        public void QuickSort(int[] arr, int low, int high)
+        public int Partition(int[] arr, int low, int high)
         {
-            //Replace the following code snippet with your implementation
-            throw new NotImplementedException();
+            int pivot = high;
+            int i = low - 1;
+
+            PrintSumShit(arr);
+            for (int j = low; j <= high - 1; j++)
+            {
+                if (arr[j] < pivot)
+                {
+                    i++;
+                    Swap(arr, i, j);
+                }
+            }
+            Swap(arr, i+1, high);
+            return (i+1);
         }
 
         public void SelectionSort(int[] arr)
@@ -118,6 +127,12 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
                 Console.Write(i + " ");
             }
             Console.WriteLine();
+        }
+        private void Swap(int[] arr, int i, int j)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
     }
 }
