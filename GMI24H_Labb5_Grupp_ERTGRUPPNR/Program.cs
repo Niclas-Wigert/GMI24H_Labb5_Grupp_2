@@ -27,7 +27,7 @@ internal class Program
         //You can create arrays to test your sorting algorithms and you can create
         //a sorted array and an element to search for to test your searching algorithms. You have some sample data in the MyData.cs file that you can use.
         //but you are of course free to experiment with even larger data sets (in fact, this might be necessary to measure the performance of your algorithms).
-        MyData data = new();
+        //MyData data = new();
 
         //Since the methods in the Sorter and Searcher classes are not static, you need to create an object of each class
         //in order to call the methods which consist your algorithms.
@@ -38,35 +38,32 @@ internal class Program
         // the method call below is just for reference on how you
         //can call the method and pass the sample data provided in the MyData class.
         //int[] myArray = data.RandomNumSmallSmallRange; //initializing array that we want to sort. Note that we create and assign this prior to the method call, and there is a reason for this. Do you know why? :)
-        //int[] testArray = { 12, 22, 33, 3, 19, 77, 1 };
-
-        //sorter.BubbleSort(myArray); // <-- implement the methods from ISorter in the Sorter class in order to use them and passing the previously initialized array as an argument to the sorting method we want to test...
-
-        //sorter.BubbleSort(testArray);
-        //sorter.HeapSort(testArray);
-        //sorter.InsertionSort(testArray);
-        //sorter.QuickSort(testArray, 0, testArray.Length-1);
-        //sorter.SelectionSort(testArray);
 
         //To be able to measure how long it takes to run an algorithm, you can use
         //The Stopwatch and the TimeSpan classes.
+        int[] testarr = {1,5,7,9, 23,55,76,92 };
 
 
         TimeSpan totalRunTime = new TimeSpan();
         for (int i = 0; i < 10; i++)
         {
-            int[] myArray = data.RandomNumSmallLargeRange; //initializing array that we want to sort. Note that we create and assign this prior to the method call, and there is a reason for this. Do you know why? :)
+            MyData data = new MyData();
+            int[] myArray = data.SortedNumSmallLargeRange; //initializing array that we want to sort. Note that we create and assign this prior to the method call, and there is a reason for this. Do you know why? :)
 
 
             Stopwatch sw = Stopwatch.StartNew();
             //HINT: this is an appropriate place to run your algorithm.
-            sorter.BubbleSort(myArray);
 
-          
+
+            //searcher.LinearSearch(myArray, 64);
+            //searcher.BinarySearch(myArray, 65);
+            searcher.InterpolationSearch(myArray, 65);
+
+
+
             sw.Stop();
             TimeSpan elapsedTime = sw.Elapsed; //HINT: perhaps might be a good idea to do something with this...
             Console.WriteLine(elapsedTime.ToString());
-
             totalRunTime += elapsedTime;
         }
         Console.WriteLine("Total körtid för alla tio: " + totalRunTime.Ticks);
@@ -75,3 +72,14 @@ internal class Program
         
     }
 }
+
+
+
+//int low = 0;
+//int high = myArray.Length-1;
+
+//sorter.BubbleSort(myArray);
+//sorter.InsertionSort(myArray);
+//sorter.SelectionSort(myArray);
+//sorter.HeapSort(myArray);
+//sorter.QuickSort(myArray, low, high);

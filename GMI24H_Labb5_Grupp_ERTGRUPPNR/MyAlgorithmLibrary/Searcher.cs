@@ -15,8 +15,25 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
     {
         public int BinarySearch(int[] array, int target)
         {
-            //Replace the following code snippet with your implementation
-            throw new NotImplementedException();
+            int min = 0;
+            int max = array.Length-1;
+            while (min <= max)
+            {
+                int mid = (min+max)/2;
+                if (target < array[mid])
+                {
+                    max = mid - 1;
+                }
+                else if (target > array[mid])
+                {
+                    min = mid + 1;
+                }
+                else
+                {
+                    return mid;
+                }
+            }
+            return -1;
         }
 
         public int ExponentialSearch(int[] array, int target)
@@ -27,8 +44,30 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
 
         public int InterpolationSearch(int[] array, int target)
         {
-            //Replace the following code snippet with your implementation
-            throw new NotImplementedException();
+            int min = 0;
+            int max = array.Length - 1;
+            while (min <= max)
+            {
+                int mid = min + ((target - array[min]) * (max - min) / (array[max] - array[min]));
+                //int mid = min + (((max - min) / (array[max] - array[min])) * (target - array[min]));
+                if (array[mid] == target)
+                {
+                    return mid;
+                }
+                else if (target < array[mid])
+                {
+                    max = mid - 1;
+                }
+                else if (target > array[mid])
+                {
+                    min = mid + 1;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            return -1;
         }
 
         public int JumpSearch(int[] array, int target)
@@ -39,8 +78,18 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
 
         public int LinearSearch(int[] array, int target)
         {
-            //Replace the following code snippet with your implementation
-            throw new NotImplementedException();
+            for(int i = 0;i < array.Length ; i++)
+            {
+                if (array[i] == target)
+                {
+                    return i;
+                }
+                if (array[i] > target)
+                {
+                    return -1;
+                }
+            }
+            return -1;
         }
     }
 }

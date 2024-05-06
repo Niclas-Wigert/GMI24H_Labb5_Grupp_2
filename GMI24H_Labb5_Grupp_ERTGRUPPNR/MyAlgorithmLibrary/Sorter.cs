@@ -32,7 +32,6 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
                     }
                 }
             }
-            
         }
 
         // HeapSort, Reference: https://www.geeksforgeeks.org/heap-sort/
@@ -94,14 +93,13 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
         // QuickSort, Reference: https://www.geeksforgeeks.org/quick-sort/
         public void QuickSort(int[] arr, int low, int high)
         {
-            
             if (low < high)
             {
                 int pi = Partition(arr, low, high);
 
                 QuickSort(arr, low, pi - 1);
                 QuickSort(arr, pi + 1, high);
-            }
+            } 
         }
 
         public int Partition(int[] arr, int low, int high)
@@ -137,7 +135,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
         }
 
         // Method for when we tried them
-        private void PrintSumShit(int[] arr)
+        public void PrintSumShit(int[] arr)
         {
             foreach (int i in arr)
             {
