@@ -100,5 +100,5 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
     }
 }
 // References:
-// GeeksforGeeks. (u.å, 15 Maj 2023). Interpolation Search. Retrieved 7 Maj from https://www.geeksforgeeks.org/interpolation-search/
+// GeeksforGeeks. (2023, 15 Maj 2023). Interpolation Search. Retrieved 7 Maj from https://www.geeksforgeeks.org/interpolation-search/
 // Stephens, R. (2019). Searching. In Essential Algorithms: A Practical Approach to Computer Algorithms Using Python® and C# (pp. 201-208). https://doi.org/https://doi.org/10.1002/9781119575955.ch7 
