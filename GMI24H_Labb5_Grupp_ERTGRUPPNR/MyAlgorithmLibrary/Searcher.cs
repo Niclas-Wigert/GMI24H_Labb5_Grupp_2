@@ -13,6 +13,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
     /// </summary>
     public class Searcher : ISearcher
     {
+        // BinarySearch (Stephens, 2019)
         public int BinarySearch(int[] array, int target)
         {
             int min = 0;
@@ -42,6 +43,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
             throw new NotImplementedException();
         }
 
+        // InterpolationSearch, (GeeksforGeeks, 2023; Stephens, 2019)
         public int InterpolationSearch(int[] array, int target)
         {
             int min = 0;
@@ -79,6 +81,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
             throw new NotImplementedException();
         }
 
+        // LinearSearch (Stephens, 2019)
         public int LinearSearch(int[] array, int target)
         {
             for(int i = 0;i < array.Length ; i++)
@@ -96,3 +99,6 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
         }
     }
 }
+// References:
+// GeeksforGeeks. (u.å, 15 Maj 2023). Interpolation Search. Retrieved 7 Maj from https://www.geeksforgeeks.org/interpolation-search/
+// Stephens, R. (2019). Searching. In Essential Algorithms: A Practical Approach to Computer Algorithms Using Python® and C# (pp. 201-208). https://doi.org/https://doi.org/10.1002/9781119575955.ch7 

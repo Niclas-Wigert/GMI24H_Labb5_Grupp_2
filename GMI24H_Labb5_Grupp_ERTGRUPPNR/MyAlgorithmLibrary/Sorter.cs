@@ -16,7 +16,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
     /// </summary>
     public class Sorter : ISorter
     {
-        // BubbleSort, Reference: Essential Algorithms
+        // BubbleSort (Stephens, 2019)
         public void BubbleSort(int[] arr)
         {
             bool not_sorted = true;
@@ -34,7 +34,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
             }
         }
 
-        // HeapSort, Reference: https://www.geeksforgeeks.org/heap-sort/
+        // HeapSort (GeeksforGeeks, 2024a)
         public void HeapSort(int[] arr)
         {
             int heapSize = arr.Length;
@@ -74,7 +74,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
             }
         }
 
-        // InsertionSort, Reference: https://www.geeksforgeeks.org/insertion-sort/
+        // InsertionSort (GeeksforGeeks, 2024b)
         public void InsertionSort(int[] arr)
         {
             for (int i = 1; i < arr.Length; i++)
@@ -90,7 +90,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
             }
         }
 
-        // QuickSort, Reference: https://www.geeksforgeeks.org/quick-sort/
+        // QuickSort (GeeksforGeeks, 2024c)
         public void QuickSort(int[] arr, int low, int high)
         {
             if (low < high)
@@ -119,7 +119,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
             return (i + 1);
         }
 
-        // SelectionSort, Reference: Essential Algorithms
+        // SelectionSort (Stephens, 2019)
         public void SelectionSort(int[] arr)
         {
             for (int i = 0; i < arr.Length - 1; i++)
@@ -153,3 +153,8 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
         }
     }
 }
+// References:
+// GeeksforGeeks. (2024a, 29 Mars 2024). Heap Sort – Data Structures and Algorithms Tutorials. Retrieved 2 Maj from https://www.geeksforgeeks.org/heap-sort/
+// GeeksforGeeks. (2024b, 27 April 2024). Insertion Sort – Data Structure and Algorithm Tutorials. Retrieved 2 Maj from https://www.geeksforgeeks.org/insertion-sort/
+// GeeksforGeeks. (2024c, 9 April 2024). QuickSort – Data Structure and Algorithm Tutorials. Retrieved 2 Maj from https://www.geeksforgeeks.org/quick-sort/
+// Stephens, R. (2019). Sorting. In Essential Algorithms:  A Practical Approach to Computer Algorithms Using Python® and C# (pp. 167-200). https://doi.org/https://doi.org/10.1002/9781119575955.ch6 
