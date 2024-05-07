@@ -46,17 +46,20 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
         {
             int min = 0;
             int max = array.Length - 1;
-            while (min <= max)
+            while (min <= max && target >= array[min] && target <= array[max])
             {
+                if (min == max)
+                {
+                    if (array[min] == target)
+                    {
+                        return min;
+                    }
+                    return -1;
+                }
                 int mid = min + ((target - array[min]) * (max - min) / (array[max] - array[min]));
-                //int mid = min + (((max - min) / (array[max] - array[min])) * (target - array[min]));
                 if (array[mid] == target)
                 {
                     return mid;
-                }
-                else if (target < array[mid])
-                {
-                    max = mid - 1;
                 }
                 else if (target > array[mid])
                 {
@@ -64,7 +67,7 @@ namespace GMI24H_Labb5_Grupp_ERTGRUPPNR.MyAlgorithmLibrary
                 }
                 else
                 {
-                    return -1;
+                    max = mid - 1;
                 }
             }
             return -1;
